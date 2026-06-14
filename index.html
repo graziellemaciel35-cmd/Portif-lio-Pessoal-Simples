@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stuckfy - Hannah Lennon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Stuckfy.</div>
+        <ul class="nav-menu">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Latest</a></li>
+            <li><a href="#">Category</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="search">
+            <input type="text" placeholder="Please Subscribe">
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="hero-text">
+            <p class="saudacao">Hello, It’s Me</p>
+            <h1 class="nome">Hannah Lennon</h1>
+            <p class="texto-digitando">And I’m a <span class="digitando"></span></p>
+            <div class="botoes">
+                <a href="#" class="btn btn-sobre">About Me</a>
+                <a href="#" class="btn btn-seguir">Follow Me</a>
+            </div>
+        </div>
+        <div class="foto-bloco">
+            <div class="circulo azul"></div>
+            <div class="circulo amarelo"></div>
+            <div class="circulo rosa"></div>
+            <img src="hannah.jpg" alt="Hannah Lennon" class="foto-perfil">
+        </div>
+    </section>]
+    <script>
+        const palavras = ["Youtuber", "Blogger", "Designer", "Criador"];
+        let indicePalavra = 0;
+        let indiceLetra = 0;
+        const elemento = document.querySelector(".digitando");
+        function escrever() {
+            if (indiceLetra < palavras[indicePalavra].length) {
+                elemento.textContent += palavras[indicePalavra].charAt(indiceLetra);
+                indiceLetra++;
+                setTimeout(escrever, 130);
+            } else {
+                setTimeout(apagar, 2200);
+            }
+        }
+        function apagar() {
+            if (indiceLetra > 0) {
+                elemento.textContent = palavras[indicePalavra].substring(0, indiceLetra - 1);
+                indiceLetra--;
+                setTimeout(apagar, 80);
+            } else {
+                indicePalavra = (indicePalavra + 1) % palavras.length;
+                setTimeout(escrever, 400);
+            }
+        }
+        escrever();
+    </script>
+</body>
+</html>
